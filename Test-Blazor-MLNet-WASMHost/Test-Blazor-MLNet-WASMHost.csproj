@@ -5,12 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Blazored.Typeahead" Version="4.5.1" />
-    <PackageReference Include="Lucene.Net" Version="4.8.0-beta00013" />
-    <PackageReference Include="Lucene.Net.QueryParser" Version="4.8.0-beta00013" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.0-preview.1.21103.6" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.0-preview.1.21103.6" PrivateAssets="all" />
-    <PackageReference Include="System.Net.Http.Json" Version="6.0.0-preview.1.21102.12" />
+    <PackageReference Include="Blazored.Typeahead" Version="4.6.0" />
+    <PackageReference Include="Lucene.Net" Version="4.8.0-beta00014" />
+    <PackageReference Include="Lucene.Net.QueryParser" Version="4.8.0-beta00014" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.0-preview.6.21355.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.0-preview.6.21355.2" PrivateAssets="all" />
+    <PackageReference Include="System.Net.Http.Json" Version="6.0.0-preview.6.21352.12" />
   </ItemGroup>
 
   <ItemGroup>
