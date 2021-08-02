@@ -7,7 +7,7 @@ using System.Linq;
 using Lucene.Net;
 using Lucene.Net.Documents;
 
-namespace Test_Blazor_MLNet_WASMHost.Shared
+namespace TestBlazorMLNetWASMHost.Shared
 {
     public class Util
     {
@@ -34,20 +34,20 @@ namespace Test_Blazor_MLNet_WASMHost.Shared
 
         public static Stream GetModelStream(string predictionType, string algorithmName)
         {
-            var assembly = typeof(Test_Blazor_MLNet_WASMHost.Shared.Util).Assembly;
-            Stream resource = assembly.GetManifestResourceStream($"Test_Blazor_MLNet_WASMHost.Shared.Models.{predictionType}-{algorithmName}.mlnet");
+            var assembly = typeof(TestBlazorMLNetWASMHost.Shared.Util).Assembly;
+            Stream resource = assembly.GetManifestResourceStream($"TestBlazorMLNetWASMHost.Shared.Models.{predictionType}-{algorithmName}.mlnet");
 
             return resource;
         }
 
         public static Stream GetBaseballDataStream()
         {
-            var assembly = typeof(Test_Blazor_MLNet_WASMHost.Shared.Util).Assembly;
+            var assembly = typeof(TestBlazorMLNetWASMHost.Shared.Util).Assembly;
 
             // var test = assembly.GetManifestResourceNames();
             // taskkill /IM dotnet.exe /F /T 2>nul 1>nul
 
-            Stream resource = assembly.GetManifestResourceStream($"Test_Blazor_MLNet_WASMHost.Shared.Data.MLBBaseballBattersHistorical.csv");
+            Stream resource = assembly.GetManifestResourceStream($"TestBlazorMLNetWASMHost.Shared.Data.MLBBaseballBattersHistorical.csv");
 
             return resource;
         }
@@ -238,10 +238,10 @@ namespace Test_Blazor_MLNet_WASMHost.Shared
 
         public static void LoadLuceneIndexIntoDirectory()
         {
-            var assembly = typeof(Test_Blazor_MLNet_WASMHost.Shared.Util).Assembly;
+            var assembly = typeof(TestBlazorMLNetWASMHost.Shared.Util).Assembly;
             // var resources = assembly.GetManifestResourceNames();
 
-            Stream resource = assembly.GetManifestResourceStream($"Test_Blazor_MLNet_WASMHost.Shared.LuceneIndex.LuceneIndex.zip");
+            Stream resource = assembly.GetManifestResourceStream($"TestBlazorMLNetWASMHost.Shared.LuceneIndex.LuceneIndex.zip");
             Console.WriteLine("LoadLuceneIndexIntoDirectory - Retrieved Stream");
 
             var indexPath = Path.Combine(Environment.CurrentDirectory, "LuceneIndex.zip");

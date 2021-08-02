@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Test_Blazor_MLNet_WASMHost.Shared
+namespace TestBlazorMLNetWASMHost.Shared
 {
     public sealed class LuceneIndexService
     {
@@ -19,10 +19,10 @@ namespace Test_Blazor_MLNet_WASMHost.Shared
 
         private LuceneIndexService()
         {
-            var assembly = typeof(Test_Blazor_MLNet_WASMHost.Shared.LuceneIndexService).Assembly;
+            var assembly = typeof(TestBlazorMLNetWASMHost.Shared.LuceneIndexService).Assembly;
             var test = assembly.GetManifestResourceNames();
                                                                         
-            Stream resource = assembly.GetManifestResourceStream($"Test_Blazor_MLNet_WASMHost.Shared.LuceneIndex.LuceneIndex.zip");
+            Stream resource = assembly.GetManifestResourceStream($"TestBlazorMLNetWASMHost.Shared.LuceneIndex.LuceneIndex.zip");
             Console.WriteLine("LuceneIndexService - Retrieved Index Stream");
 
             var indexPath = Path.Combine(Environment.CurrentDirectory, "LuceneIndex.zip");

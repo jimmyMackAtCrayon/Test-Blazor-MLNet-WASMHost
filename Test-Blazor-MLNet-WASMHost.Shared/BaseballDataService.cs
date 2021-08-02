@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Test_Blazor_MLNet_WASMHost.Shared
+namespace TestBlazorMLNetWASMHost.Shared
 {
     public sealed class BaseballDataSampleService
     {
@@ -53,7 +53,7 @@ namespace Test_Blazor_MLNet_WASMHost.Shared
 
             // Load MLB baseball batters from local CSV file
 
-            var assembly = typeof(Test_Blazor_MLNet_WASMHost.Shared.Util).Assembly;
+            var assembly = typeof(TestBlazorMLNetWASMHost.Shared.Util).Assembly;
 
             var lines = ReadLines(() => Util.GetBaseballDataStream(), Encoding.UTF8);
 

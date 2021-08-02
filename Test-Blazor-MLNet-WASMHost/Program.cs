@@ -3,9 +3,9 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Test_Blazor_MLNet_WASMHost.Shared;
+using TestBlazorMLNetWASMHost.Shared;
 
-namespace Test_Blazor_MLNet_WASMHost
+namespace TestBlazorMLNetWASMHost
 {
     public class Program
     {

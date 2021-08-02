@@ -24,11 +24,11 @@
                    @bind-Value="@SelectedBatter"
                    Debounce="150" MaximumSuggestions="50"
                    EnableDropDown="true" ShowDropDownOnFocus="true">
-    <SelectedTemplate>
-        <b>@context.FullPlayerName - &nbsp;</b> (Years Played: @context.YearsPlayed, Last Season Played: @context.LastYearPlayed-@(context.LastYearPlayed + 1))
+    <SelectedTemplate Context="item">
+        <b>@item.FullPlayerName - &nbsp;</b> (Years Played: @item.YearsPlayed, Last Season Played: @item.LastYearPlayed-@(item.LastYearPlayed + 1))
     </SelectedTemplate>
-    <ResultTemplate>
-        <b>@context.FullPlayerName - &nbsp;</b> (Years Played: @context.YearsPlayed, Last Season Played: @context.LastYearPlayed-@(context.LastYearPlayed + 1))
+    <ResultTemplate Context="item">
+        <b>@item.FullPlayerName - &nbsp;</b> (Years Played: @item.YearsPlayed, Last Season Played: @item.LastYearPlayed-@(item.LastYearPlayed + 1))
     </ResultTemplate>
     <NotFoundTemplate>
         Sorry, there weren't any baseball players found.

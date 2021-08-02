@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Test-Blazor-MLNet-WASMHost": {
+    "TestBlazorMLNetWASMHost": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

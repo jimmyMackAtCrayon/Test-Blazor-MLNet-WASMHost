@@ -8,13 +8,13 @@
     <PackageReference Include="Blazored.Typeahead" Version="4.6.0" />
     <PackageReference Include="Lucene.Net" Version="4.8.0-beta00014" />
     <PackageReference Include="Lucene.Net.QueryParser" Version="4.8.0-beta00014" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.0-preview.6.21355.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.0-preview.6.21355.2" PrivateAssets="all" />
-    <PackageReference Include="System.Net.Http.Json" Version="6.0.0-preview.6.21352.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.0-preview.1.*" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.0-preview.1.*" PrivateAssets="all" />
+    <PackageReference Include="System.Net.Http.Json" Version="6.0.0-preview.1.*" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Test-Blazor-MLNet-WASMHost.Shared\Test-Blazor-MLNet-WASMHost.Shared.csproj" />
+    <ProjectReference Include="..\Test-Blazor-MLNet-WASMHost.Shared\TestBlazorMLNetWASMHost.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>
