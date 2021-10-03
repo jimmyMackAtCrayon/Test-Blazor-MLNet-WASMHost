@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,6 +16,10 @@
     <PackageReference Include="System.Net.Http.Json" Version="6.0.0-rc.1.21451.13" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
+  </ItemGroup>
+  
   <ItemGroup>
     <ProjectReference Include="..\Test-Blazor-MLNet-WASMHost.Shared\TestBlazorMLNetWASMHost.Shared.csproj" />
   </ItemGroup>
