@@ -35,7 +35,11 @@ namespace TestBlazorMLNetWASMHost.Shared
         public static Stream GetModelStream(string predictionType, string algorithmName)
         {
             var assembly = typeof(TestBlazorMLNetWASMHost.Shared.Util).Assembly;
-            Stream resource = assembly.GetManifestResourceStream($"TestBlazorMLNetWASMHost.Shared.Models.{predictionType}-{algorithmName}.mlnet");
+
+            // Map the names to new model name convention
+            var predictionTypeModelName = (predictionType == "InductedToHallOfFame") ? "InductedToHoF" : "OnHoFBallot";
+
+            Stream resource = assembly.GetManifestResourceStream($"TestBlazorMLNetWASMHost.Shared.Models.{predictionTypeModelName}-{algorithmName}.mlnet");
 
             return resource;
         }
