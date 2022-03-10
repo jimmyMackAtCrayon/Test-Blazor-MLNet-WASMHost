@@ -88,11 +88,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lucene.Net" Version="4.8.0-beta00014" />
-    <PackageReference Include="Lucene.Net.QueryParser" Version="4.8.0-beta00014" />
-    <PackageReference Include="Microsoft.ML" Version="1.7.0" />
-    <PackageReference Include="Microsoft.ML.FastTree" Version="1.7.0" />
-    <PackageReference Include="Microsoft.ML.LightGbm" Version="1.7.0" />
+    <PackageReference Include="Lucene.Net" Version="4.8.0-beta00016" />
+    <PackageReference Include="Lucene.Net.QueryParser" Version="4.8.0-beta00016" />
+    <PackageReference Include="Microsoft.ML" Version="1.7.1" />
+    <PackageReference Include="Microsoft.ML.FastTree" Version="1.7.1" />
+    <PackageReference Include="Microsoft.ML.LightGbm" Version="1.7.1" />
   </ItemGroup>
 
 </Project>
