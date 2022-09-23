@@ -13,18 +13,21 @@
     }
 
 .column-6 {
-    width: 50%;
+    width: 46%;
     float: left;
+    margin: 2%;
     padding: 0.5em 2%;
+    height: 150px;
+    background-color: #E6E4D9;
 }
 
 .contentSection {
     text-align: left;
     background-color: #E6E4D9;
-    height: 460px;
+    height: auto;
     font-size: 18px;
     padding-top: 3%;
-    width: 400px;
+    width: 45%;
 }
 
 .contentSection1 {

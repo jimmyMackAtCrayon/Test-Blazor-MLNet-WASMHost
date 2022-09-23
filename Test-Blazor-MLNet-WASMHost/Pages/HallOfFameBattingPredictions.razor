@@ -15,7 +15,7 @@
         <b>Select </b>the algorithm used in the ML.NET model for prediction:<br />
         <b>Note: </b>Models that do not return probability values (only labels) will show values as N/A
         <p>
-            <select id="algorithmName" @onchange="OnSelectedAlgorithm" class="dropDown" style="height:40px;border-radius:5px;border-color:#c1c1c1;">
+            <select id="algorithmName" @onchange="OnSelectedAlgorithm" class="dropDown" style="height:40px;border-radius:5px;border-color:#c1c1c1;background-color:transparent;font-weight:bold;">
                 <option value="AveragedPerceptron">AveragedPerceptron</option>
                 <option value="FastForest">FastForest</option>
                 <option value="FastTree">FastTree</option>
@@ -37,7 +37,7 @@
             <BlazoredTypeahead SearchMethod="@SearchBaseballPlayersInLuceneAsync"
                                @bind-Value="@SelectedBatter"
                                Debounce="150" MaximumSuggestions="50"
-                               EnableDropDown="true" ShowDropDownOnFocus="true">
+                               EnableDropDown="true" ShowDropDownOnFocus="true"            >
                 <SelectedTemplate Context="item">
                     <b>@item.FullPlayerName - &nbsp;</b> (Years Played: @item.YearsPlayed, Last Season Played: @item.LastYearPlayed-@(item.LastYearPlayed + 1))
                 </SelectedTemplate>
