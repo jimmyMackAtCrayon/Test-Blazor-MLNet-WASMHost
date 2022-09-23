@@ -14,4 +14,4 @@ namespace TestBlazorMLNetWASMHost.Shared
 
         public List<MLBBaseballBatterSeasonPrediction> MLBBaseballBatterSeasonPredictions {get; set;}
     }
-}
+ }

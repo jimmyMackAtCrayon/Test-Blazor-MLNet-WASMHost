@@ -4,6 +4,61 @@
 
 <link href="_content/Blazored.Typeahead/blazored-typeahead.css" rel="stylesheet" />
 
+<div id="contentWrapper">
+
+    <div class="column-12">
+        <h1>Local prediction inference in Blazor and ML.NET</h1>
+    </div>
+   
+
+    <article class="column-6">
+        <b>Select </b>the algorithm used in the ML.NET model for prediction:<br />
+        <b>Note: </b>Models that do not return probability values (only labels) will show values as N/A
+        <p>
+            <select id="algorithmName" @onchange="OnSelectedAlgorithm" class="dropDown" style="height:40px;border-radius:5px;border-color:#c1c1c1;">
+                <option value="AveragedPerceptron">AveragedPerceptron</option>
+                <option value="FastForest">FastForest</option>
+                <option value="FastTree">FastTree</option>
+                <option value="GeneralizedAdditiveModels">GeneralizedAdditiveModels</option>
+                <option selected value="LightGbm">LightGbm</option>
+                <option value="LogisticRegression">LogisticRegression</option>
+                <option value="StackedEnsemble">Stacked Ensemble</option>
+                <option value="StochasticGradientDescentCalibrated">StochasticGradientDescentCalibrated</option>
+                <option value="StochasticGradientDescentNonCalibrated">StochasticGradientDescentNonCalibrated</option>
+            </select>
+        </p>
+    </article>
+    <!--end of column -->
+    <article class="column-6">
+        <br />
+        <p style="padding-top:4px;">
+
+            <small class="form-text text-muted"><b>Select or Search</b> any MLB Batter to perform prediction:</small>
+            <BlazoredTypeahead SearchMethod="@SearchBaseballPlayersInLuceneAsync"
+                               @bind-Value="@SelectedBatter"
+                               Debounce="150" MaximumSuggestions="50"
+                               EnableDropDown="true" ShowDropDownOnFocus="true">
+                <SelectedTemplate Context="item">
+                    <b>@item.FullPlayerName - &nbsp;</b> (Years Played: @item.YearsPlayed, Last Season Played: @item.LastYearPlayed-@(item.LastYearPlayed + 1))
+                </SelectedTemplate>
+                <ResultTemplate Context="item">
+                    <b>@item.FullPlayerName - &nbsp;</b> (Years Played: @item.YearsPlayed, Last Season Played: @item.LastYearPlayed-@(item.LastYearPlayed + 1))
+                </ResultTemplate>
+                <NotFoundTemplate>
+                    Sorry, there weren't any baseball players found.
+                </NotFoundTemplate>
+            </BlazoredTypeahead>
+        </p>
+    </article>
+    <!--end of column -->
+</div>
+
+
+
+
+
+
+@*
 <strong class="form-text">Local prediction inference in Blazor and ML.NET</strong>
 <small class="form-text text-muted"><b>Select </b>the algorithm used in the ML.NET model for prediction:</small>
 <small class="form-text text-muted"><b>Note: </b>Models that do not return probability values (only labels) will show values as N/A</small>
@@ -106,7 +161,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>*@
 
 
 @code {
@@ -166,12 +221,12 @@
 
         // Mike Trout (default)
         this.SelectedBatter = new MLBBaseballBatter
-        {
-            ID = "troutmi01",
-            FullPlayerName = "Mike Trout",
-            YearsPlayed = 11,
-            LastYearPlayed = 2021
-        };
+            {
+                ID = "troutmi01",
+                FullPlayerName = "Mike Trout",
+                YearsPlayed = 11,
+                LastYearPlayed = 2021
+            };
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
