@@ -3,15 +3,15 @@
 @inject LuceneIndexService luceneIndexService;
 
 <link href="_content/Blazored.Typeahead/blazored-typeahead.css" rel="stylesheet" />
-
+<div class="column-12">
+    <h1>Local prediction inference in Blazor and ML.NET</h1>
+</div>
 <div id="contentWrapper">
 
-    <div class="column-12">
-        <h1>Local prediction inference in Blazor and ML.NET</h1>
-    </div>
+   
    
 
-    <article class="column-6">
+    <article class="col-6  column-6">
         <b>Select </b>the algorithm used in the ML.NET model for prediction:<br />
         <b>Note: </b>Models that do not return probability values (only labels) will show values as N/A
         <p>
@@ -26,11 +26,7 @@
                 <option value="StochasticGradientDescentCalibrated">StochasticGradientDescentCalibrated</option>
                 <option value="StochasticGradientDescentNonCalibrated">StochasticGradientDescentNonCalibrated</option>
             </select>
-        </p>
-    </article>
-    <!--end of column -->
-    <article class="column-6">
-        <br />
+        </p>    
         <p style="padding-top:4px;">
 
             <small class="form-text text-muted"><b>Select or Search</b> any MLB Batter to perform prediction:</small>
@@ -39,16 +35,19 @@
                                Debounce="150" MaximumSuggestions="50"
                                EnableDropDown="true" ShowDropDownOnFocus="true"            >
                 <SelectedTemplate Context="item">
-                    <b>@item.FullPlayerName - &nbsp;</b> (Years Played: @item.YearsPlayed, Last Season Played: @item.LastYearPlayed-@(item.LastYearPlayed + 1))
+                    <b>@item.FullPlayerName</b>
                 </SelectedTemplate>
                 <ResultTemplate Context="item">
-                    <b>@item.FullPlayerName - &nbsp;</b> (Years Played: @item.YearsPlayed, Last Season Played: @item.LastYearPlayed-@(item.LastYearPlayed + 1))
+                    <b>@item.FullPlayerName</b>
                 </ResultTemplate>
                 <NotFoundTemplate>
                     Sorry, there weren't any baseball players found.
                 </NotFoundTemplate>
             </BlazoredTypeahead>
         </p>
+    </article>
+    <article class="col-6 column-6">
+        <p>James James James James James James James James James James James James James James James James James James James James </p>
     </article>
     <!--end of column -->
 </div>

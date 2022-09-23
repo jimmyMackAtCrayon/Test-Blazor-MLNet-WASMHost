@@ -13,11 +13,13 @@
     }
 
 .column-6 {
-    width: 46%;
+   
     float: left;
+  
     margin: 2%;
+   
     padding: 0.5em 2%;
-    height: 150px;
+   
     background-color: #E6E4D9;
 }
 
