@@ -44,22 +44,22 @@
        
     </article>
     <article class="main">
-        <div class="g-predictionTable">
-            <h5>Hall of Fame - On Ballot</h5>
-            <table>
+        <div class="g-predictionTable" style="padding-left:10px; ">
+            <center><h5>Hall of Fame - On Ballot</h5></center>
+            <table style="border:solid;border-color:white;border-width:1px;">
                 <thead>
-                    <tr>
-                        <th>Year Played</th>
-                        <th>Probability</th>
-                        <th>Class Label</th>
+                    <tr style="background-color:#094E5D;color:white;border-width:1px;">
+                        <th class="centerIt">Year Played</th>
+                        <th class="centerIt">Probability</th>
+                        <th class="centerIt">Class Label</th>
                     </tr>
                 </thead>
                 @foreach (var pred in this.predictionData.MLBBaseballBatterSeasonPredictions)
                 {
-                    <tr class=@(pred.OnHallOfFameBallotPrediction ? "g-prediction-row" : string.Empty)>
-                        <td class="g-seasonNumber">@pred.SeasonNumber</td>
-                        <td>@pred.OnHallOfFameBallotProbabilityLabel</td>
-                        <td class="g-prediction"><div class=@(pred.OnHallOfFameBallotPrediction ? "g-prediction-true" : string.Empty)>@pred.OnHallOfFameBallotPrediction</div></td>
+                    <tr class=@(pred.OnHallOfFameBallotPrediction ? "g-prediction-row" : "g-prediction-row-off")>
+                        <td class="g-seasonNumber centerIt">@pred.SeasonNumber</td>
+                        <td class="centerIt">@pred.OnHallOfFameBallotProbabilityLabel</td>
+                        <td class="g-prediction centerIt"><div class=@(pred.OnHallOfFameBallotPrediction ? "g-prediction-true" : "g-prediction-row-off")>@pred.OnHallOfFameBallotPrediction</div></td>
                     </tr>
                 }
             </table>

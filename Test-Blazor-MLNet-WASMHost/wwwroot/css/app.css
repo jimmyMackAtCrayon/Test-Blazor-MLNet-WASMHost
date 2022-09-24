@@ -220,8 +220,12 @@ h5 {
 }
 
 .g-prediction-row {
-    color: #000;
-    background: hsl(204, 26%, 94%);
+    color: #094E5D;
+    background-color: #CCD0D2;
+}
+.g-prediction-row-off {
+    color: #094E5D;
+    background-color: #E7E9EA;
 }
 
 table {
