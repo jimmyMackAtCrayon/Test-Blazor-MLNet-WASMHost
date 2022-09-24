@@ -25,6 +25,13 @@
     background-color: #E6E4D9;
 }
 
+.params {
+    color: #04242D;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
 
 @media all and (min-width: 800px) {
     .main {

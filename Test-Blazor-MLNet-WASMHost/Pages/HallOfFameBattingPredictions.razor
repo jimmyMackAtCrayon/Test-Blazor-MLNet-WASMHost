@@ -8,10 +8,8 @@
         Local prediction inference in Blazor and ML.NET
     </header>
     <article class="main">
-        <p></p> <b>Select </b>the algorithm used in the ML.NET model for prediction:<br />
-        <b>Note: </b>Models that do not return probability values (only labels) will show values as N/A
-        <p>
-            <select id="algorithmName" @onchange="OnSelectedAlgorithm" class="dropDown" style="height:40px;border-radius:5px;border-color:#c1c1c1;background-color:transparent;font-weight:bold;">
+        <p class="params">Select algorithm for ML.NET prediction model:
+            <select id="algorithmName" @onchange="OnSelectedAlgorithm" class="dropDown">
                 <option value="AveragedPerceptron">AveragedPerceptron</option>
                 <option value="FastForest">FastForest</option>
                 <option value="FastTree">FastTree</option>
@@ -23,8 +21,8 @@
                 <option value="StochasticGradientDescentNonCalibrated">StochasticGradientDescentNonCalibrated</option>
             </select>
         </p>
-        <p>
-            <small class="form-text text-muted"><b>Select or Search</b> any MLB Batter to perform prediction:</small>
+        
+        <p class="params">Select any MLB Batter to perform prediction:
             <BlazoredTypeahead SearchMethod="@SearchBaseballPlayersInLuceneAsync"
                                @bind-Value="@SelectedBatter"
                                Debounce="150" MaximumSuggestions="50"
