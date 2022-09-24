@@ -6,7 +6,8 @@
 <div class="wrapper">
     <header class="header">
         <h2>Prediction Inference in Blazor and ML.NET</h2>
-        <b>@_selectedBatter.FullPlayerName has @_selectedBatter.YearsPlayed Years of Experience</b>
+        <span style="font-size:x-large;">@_selectedBatter.FullPlayerName has @_selectedBatter.YearsPlayed Years of Experience<br /></span>
+        <span style="font-size:smaller;"><b>Note: </b>Models that do not return probability values (only labels) will show values as N/A</span>
     </header>
     <article class="main">
         <p class="params">Select algorithm for ML.NET prediction model:
@@ -90,12 +91,13 @@
     </article>
     <article class="main">
         <div class="@cardDetailsChartStyle">
-            <div class="g-predictionChart">
+            <center><div class="g-predictionChart">
                 <h5>Predictions - Historical Seasons</h5>
                 <!-- Create a div where the graph will take place -->
                 <div id="my_dataviz" style="clear: both;">
                 </div>
-            </div>
+                </div>
+            </center>
         </div>
     </article>
 

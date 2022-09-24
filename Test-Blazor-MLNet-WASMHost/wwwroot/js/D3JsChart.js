@@ -56,7 +56,7 @@
             .attr("x", width / 2)
             .attr("y", height + margin.bottom / 1.25)
             .text("Season Played")
-            .style("font-size", "10px")
+            .style("font-size", "12px")
             .style("font-weight", "bold");
 
         // Add - Y axis
@@ -73,7 +73,7 @@
             .attr("x", height / 2)
             .attr("transform", "rotate(90)")
             .text("Probability")
-            .style("font-size", "10px")
+            .style("font-size", "12px")
             .style("font-weight", "bold");
 
 
@@ -83,7 +83,7 @@
         svg.append("path")
             .datum(dataArrayMinMaxInductedToHallOfFame)
             .style("opacity", .4)
-            .attr("fill", "#9fbfdf")
+            .attr("fill", "#CCD0D2")
             .attr("d", d3.area()
                 .x(function (d) { return x(d[1].seasonPlayed) })
                 .y0(function (d) { return y(d[1].min) })
@@ -114,7 +114,7 @@
             .attr("cx", function (d) { return x(d[1].seasonPlayed); })
             .attr("cy", function (d) { return y(d[1].onHallOfFameBallotProbability); })
             .attr("r", 3)
-            .style("fill", "#cc9966")
+            .style("fill", "#FF6A4C")
             .style("opacity", .5);
 
         // Add points - Inducted
@@ -126,7 +126,7 @@
             .attr("cx", function (d) { return x(d[1].seasonPlayed); })
             .attr("cy", function (d) { return y(d[1].inductedToHallOfFameProbability); })
             .attr("r", 3)
-            .style("fill", "#6699cc")
+            .style("fill", "#094e5d")
             .style("opacity", .5);
 
 
@@ -145,7 +145,7 @@
         svg.append("path")
             .datum(selectedItems)
             .attr("fill", "none")
-            .attr("stroke", "#6699cc")
+            .attr("stroke", "#094e5d")
             .attr("stroke-width", 1.5)
             .attr("d", d3.line()
                 .x(function (d) { return x(d[1].seasonPlayed) })
@@ -157,7 +157,7 @@
         svg.append("path")
             .datum(selectedItems)
             .attr("fill", "none")
-            .attr("stroke", "#cc9966")
+            .attr("stroke", "#FF6A4C")
             .attr("stroke-width", 1.5)
             .attr("d", d3.line()
                 .x(function (d) { return x(d[1].seasonPlayed) })
@@ -168,22 +168,22 @@
         // 6) Add Legend (last so it is top-level)
         // Legend - Points
         svg.append("circle").attr("cx", 0).attr("cy", 0).attr("r", 5).style("fill", "#dfbf9f");
-        svg.append("circle").attr("cx", 0).attr("cy", 12).attr("r", 5).style("fill", "#9fbfdf");
+        svg.append("circle").attr("cx", 0).attr("cy", 12).attr("r", 5).style("fill", "#CCD0D2");
         svg.append("text").attr("x", 6).attr("y", 1).text("Hall of Fame - On Ballot")
-            .style("font-size", "8px").attr("alignment-baseline", "middle").style("font-weight", "bold");
+            .style("font-size", "10px").attr("alignment-baseline", "middle").style("font-weight", "bold");
         svg.append("text").attr("x", 6).attr("y", 13).text("Hall of Fame - Inducted")
-            .style("font-size", "8px").attr("alignment-baseline", "middle").style("font-weight", "bold");
+            .style("font-size", "10px").attr("alignment-baseline", "middle").style("font-weight", "bold");
         // Legend - Line
         svg.append("rect").attr("x", -4).attr("y", 20)
             .attr("width", 9)
             .attr("height", 3)
-            .style("fill", "#cc9966");
+            .style("fill", "#FF6A4C");
         svg.append("rect").attr("x", -4).attr("y", 23.5)
             .attr("width", 9)
             .attr("height", 3)
-            .style("fill", "#6699cc");
+            .style("fill", "#094e5d");
         svg.append("text").attr("x", 6).attr("y", 24).text(selectedAlgorithm)
-            .style("font-size", "8px").attr("alignment-baseline", "middle").style("font-weight", "bold");
+            .style("font-size", "10px").attr("alignment-baseline", "middle").style("font-weight", "bold");
     }
 
 }
