@@ -66,22 +66,23 @@
         </div>
     </article>
     <article class="main">
-        <div class="g-predictionTable">
-            <h5>Hall of Fame - Induction</h5>
+        <div class="g-predictionTable" style="padding-left:10px; ">
+            <center><h5>Hall of Fame - Induction</h5></center>
+            
             <table>
                 <thead>
-                    <tr>
-                        <th>Year Played</th>
-                        <th>Probability</th>
-                        <th>Class Label</th>
+                    <tr style="background-color:#094E5D;color:white;border-width:1px;">
+                        <th class="centerIt">Year Played</th>
+                        <th class="centerIt">Probability</th>
+                        <th class="centerIt">Class Label</th>
                     </tr>
                 </thead>
                 @foreach (var pred in this.predictionData.MLBBaseballBatterSeasonPredictions)
                 {
-                    <tr class=@(pred.InductedToHallOfFamePrediction ? "g-prediction-row" : string.Empty)>
-                        <td class="g-seasonNumber">@pred.SeasonNumber</td>
-                        <td>@pred.InductedToHallOfFameProbabilityLabel</td>
-                        <td class="g-prediction"><div class=@(pred.InductedToHallOfFamePrediction ? "g-prediction-true" : string.Empty)>@pred.InductedToHallOfFamePrediction</div></td>
+                    <tr class=@(pred.InductedToHallOfFamePrediction ? "g-prediction-row" : "g-prediction-row-off")>
+                        <td class="g-seasonNumber centerIt">@pred.SeasonNumber</td>
+                        <td class="centerIt">@pred.InductedToHallOfFameProbabilityLabel</td>
+                        <td class="g-prediction centerIt"><div class=@(pred.InductedToHallOfFamePrediction ? "g-prediction-true" : "g-prediction-row-off")>@pred.InductedToHallOfFamePrediction</div></td>
                     </tr>
                 }
             </table>
