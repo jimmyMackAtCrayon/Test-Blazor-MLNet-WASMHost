@@ -2,6 +2,7 @@
     display: flex;
     flex-flow: row wrap;
     text-align: center;
+    background-color: #F1F2ED​;
 }
 
     .wrapper > * {
@@ -12,41 +13,22 @@
     }
 
 .header {
-    background-color: tomato;
     height: 120px;
+    background-color: #E6E4D9;
 }
 
-.footer {
-    background-color: lightgreen;
-    height: 80px;
-}
 
 .main {
     text-align: left;
-    background-color: deepskyblue;
-    height: 300px;
-    font-size: 24px;
+    height: auto;
+    font-size: 16px;
+    background-color: #E6E4D9;
 }
 
-.aside1 {
-    background-color: gold;
-}
-
-.aside2 {
-    background-color: red;
-}
 
 @media all and (min-width: 800px) {
     .main {
         flex: 3;
-    }
-
-    .aside1 {
-        order: 1;
-    }
-
-    .aside2 {
-        order: 2;
     }
 
     .main {
