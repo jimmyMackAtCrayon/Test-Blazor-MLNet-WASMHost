@@ -21,12 +21,13 @@
                 <option value="StochasticGradientDescentNonCalibrated">StochasticGradientDescentNonCalibrated</option>
             </select>
         </p>
-        
-        <p class="params">Select any MLB Batter to perform prediction:
+        <p class="params">Select any MLB Batter to perform prediction:</p>
+        <div style="background-color:white;border-style: solid;border-width:thin; border-color: #FF6A4C;border-radius:5px;">
             <BlazoredTypeahead SearchMethod="@SearchBaseballPlayersInLuceneAsync"
                                @bind-Value="@SelectedBatter"
-                               Debounce="150" MaximumSuggestions="50"
-                               EnableDropDown="true" ShowDropDownOnFocus="true">
+                               Debounce="150" MaximumSuggestions="10"
+                           EnableDropDown="true" ShowDropDownOnFocus="true">
+                               
                 <SelectedTemplate Context="item">
                     <b>@item.FullPlayerName</b>
                 </SelectedTemplate>
@@ -36,8 +37,10 @@
                 <NotFoundTemplate>
                     Sorry, there weren't any baseball players found.
                 </NotFoundTemplate>
+                
             </BlazoredTypeahead>
-        </p>
+        </div>
+       
     </article>
     <article class="main">
         <div class="g-predictionTable">
@@ -98,141 +101,6 @@
    
    
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@*
-<strong class="form-text">Local prediction inference in Blazor and ML.NET</strong>
-<small class="form-text text-muted"><b>Select </b>the algorithm used in the ML.NET model for prediction:</small>
-<small class="form-text text-muted"><b>Note: </b>Models that do not return probability values (only labels) will show values as N/A</small>
-<select id="algorithmName" @onchange="OnSelectedAlgorithm" class="dropDown">
-    <option value="AveragedPerceptron">AveragedPerceptron</option>
-    <option value="FastForest">FastForest</option>
-    <option value="FastTree">FastTree</option>
-    <option value="GeneralizedAdditiveModels">GeneralizedAdditiveModels</option>
-    <option selected value="LightGbm">LightGbm</option>
-    <option value="LogisticRegression">LogisticRegression</option>
-    <option value="StackedEnsemble">Stacked Ensemble</option>
-    <option value="StochasticGradientDescentCalibrated">StochasticGradientDescentCalibrated</option>
-    <option value="StochasticGradientDescentNonCalibrated">StochasticGradientDescentNonCalibrated</option>
-</select>
-
-<small class="form-text text-muted"><b>Select or Search</b> any MLB Batter to perform prediction:</small>
-<BlazoredTypeahead SearchMethod="@SearchBaseballPlayersInLuceneAsync"
-                   @bind-Value="@SelectedBatter"
-                   Debounce="150" MaximumSuggestions="50"
-                   EnableDropDown="true" ShowDropDownOnFocus="true">
-    <SelectedTemplate Context="item">
-        <b>@item.FullPlayerName - &nbsp;</b> (Years Played: @item.YearsPlayed, Last Season Played: @item.LastYearPlayed-@(item.LastYearPlayed + 1))
-    </SelectedTemplate>
-    <ResultTemplate Context="item">
-        <b>@item.FullPlayerName - &nbsp;</b> (Years Played: @item.YearsPlayed, Last Season Played: @item.LastYearPlayed-@(item.LastYearPlayed + 1))
-    </ResultTemplate>
-    <NotFoundTemplate>
-        Sorry, there weren't any baseball players found.
-    </NotFoundTemplate>
-</BlazoredTypeahead>
-
-<br />
-<div class="card" style="min-height: 0px;">
-    <div class="containerHeader">
-        <div class="fixedHeader">
-            <button class="showMeButton" @onclick="ChangeButtonAppearance">
-                @button
-            </button>
-        </div>
-        <span class="verticalHeader">Prediction Tables</span>
-    </div>
-    <div class="@cardDetailsStyle">
-        <div class="g-predictionTable">
-            <h5>Hall of Fame - On Ballot</h5>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Year Played</th>
-                        <th>Probability</th>
-                        <th>Class Label</th>
-                    </tr>
-                </thead>
-                @foreach (var pred in this.predictionData.MLBBaseballBatterSeasonPredictions)
-                {
-                    <tr class=@(pred.OnHallOfFameBallotPrediction ? "g-prediction-row" : string.Empty)>
-                        <td class="g-seasonNumber">@pred.SeasonNumber</td>
-                        <td>@pred.OnHallOfFameBallotProbabilityLabel</td>
-                        <td class="g-prediction"><div class=@(pred.OnHallOfFameBallotPrediction ? "g-prediction-true" : string.Empty)>@pred.OnHallOfFameBallotPrediction</div></td>
-                    </tr>
-                }
-            </table>
-        </div>
-        <div class="g-predictionTable">
-            <h5>Hall of Fame - Induction</h5>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Year Played</th>
-                        <th>Probability</th>
-                        <th>Class Label</th>
-                    </tr>
-                </thead>
-                @foreach (var pred in this.predictionData.MLBBaseballBatterSeasonPredictions)
-                {
-                    <tr class=@(pred.InductedToHallOfFamePrediction ? "g-prediction-row" : string.Empty)>
-                        <td class="g-seasonNumber">@pred.SeasonNumber</td>
-                        <td>@pred.InductedToHallOfFameProbabilityLabel</td>
-                        <td class="g-prediction"><div class=@(pred.InductedToHallOfFamePrediction ? "g-prediction-true" : string.Empty)>@pred.InductedToHallOfFamePrediction</div></td>
-                    </tr>
-                }
-            </table>
-        </div>
-    </div>
-</div>
-<br />
-<div class="card" style="min-height: 0px;">
-    <div class="containerHeader">
-        <div class="fixedHeader">
-            <button class="showMeButton" @onclick="ChangeChartButtonAppearance">
-                @buttonChart
-            </button>
-        </div>
-        <span class="verticalHeader">Prediction Chart</span>
-    </div>
-    <div class="@cardDetailsChartStyle">
-        <div class="g-predictionChart">
-            <h5>Predictions - Historical Seasons</h5>
-            <!-- Create a div where the graph will take place -->
-            <div id="my_dataviz" style="clear: both;">
-            </div>
-        </div>
-    </div>
-</div>*@
-
 
 @code {
 

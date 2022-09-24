@@ -37,9 +37,12 @@
     border-radius: 5px;
     border-color: #FF6A4C;
     background-color: white;
+    border-width:thin;
     /*font-weight: bold;*/
 }
-
+.snap{
+    background-color:red;
+}
 
 @media all and (min-width: 800px) {
     .main {
