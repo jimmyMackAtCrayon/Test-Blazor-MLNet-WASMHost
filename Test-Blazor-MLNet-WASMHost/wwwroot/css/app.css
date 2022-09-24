@@ -49,15 +49,7 @@ a, .btn-link {
         top: 0.5rem;
     }
 
-/* Dropdown List*/
-.dropDown {
-    width: 10%;
-    height: 40px;
-    border-radius: 5px;
-    border-color: #c1c1c1;
-    background-color: #FF6A4C;
-    font-weight: bold;
-}
+
 
 .form-text {
     display: block !important;
