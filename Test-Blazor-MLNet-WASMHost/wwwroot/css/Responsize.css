@@ -1,96 +1,65 @@
-﻿.contentWrapper {
+﻿.wrapper {
     display: flex;
     flex-flow: row wrap;
     text-align: center;
-    padding-top: 3%;
-    width: auto;
 }
 
-    .contentWrapper > * {
+    .wrapper > * {
         padding: 10px;
-        margin: 0;
+        margin: 10px;
         flex: 1 100%;
+        border-radius: 10px;
     }
 
-.column-6 {
-   
-    float: left;
-  
-    margin: 2%;
-   
-    padding: 0.5em 2%;
-   
-    background-color: #E6E4D9;
+.header {
+    background-color: tomato;
+    height: 120px;
 }
 
-.contentSection {
+.footer {
+    background-color: lightgreen;
+    height: 80px;
+}
+
+.main {
     text-align: left;
-    background-color: #E6E4D9;
-    height: auto;
-    font-size: 18px;
-    padding-top: 3%;
-    width: 45%;
+    background-color: deepskyblue;
+    height: 300px;
+    font-size: 24px;
 }
 
-.contentSection1 {
-    text-align: left;
-    background-color: transparent;
-    width: 0;
+.aside1 {
+    background-color: gold;
 }
 
-.bumpLeft {
-    padding-left: 10px;
-    font-size: 16px;
-    color: #094E5D;
+.aside2 {
+    background-color: red;
 }
 
-.range {
-    width: auto;
-    text-align: left;
-    min-width: 200px;
-    max-width: 200px;
-}
-
-.middle {
-    margin-right: 2%;
-    margin-bottom: 4%;
-    margin-top: 3%;
-    padding-top: 5%;
-    padding-left: 5%;
-}
-
-@media all and (max-width:878px) {
-    .contentSection {
+@media all and (min-width: 800px) {
+    .main {
         flex: 3;
+    }
+
+    .aside1 {
+        order: 1;
+    }
+
+    .aside2 {
         order: 2;
-        width: auto;
     }
 
-    .flexer {
-        margin-left: -10px;
-        padding-top: 3%;
-        padding-left: 40px;
+    .main {
+        order: 2;
     }
 
-    .middle {
-        padding-top: 10%;
-    }
-
-    .range {
-        min-width: 50px;
-        max-width: 50px;
-    }
-
-    .collapse {
-        height: 0;
+    .footer {
+        order: 4;
     }
 }
 
-@media all and (min-width:879px) {
-    .contentSection {
-        flex: 3;
-        order: 2;
-        width: auto;
+@media all and (min-width: 600px) {
+    .aside {
+        flex: 1;
     }
 }
-

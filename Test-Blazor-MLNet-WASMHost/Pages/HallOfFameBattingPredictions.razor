@@ -3,16 +3,12 @@
 @inject LuceneIndexService luceneIndexService;
 
 <link href="_content/Blazored.Typeahead/blazored-typeahead.css" rel="stylesheet" />
-<div class="column-12">
-    <h1>Local prediction inference in Blazor and ML.NET</h1>
-</div>
-<div id="contentWrapper">
-
-   
-   
-
-    <article class="col-6  column-6">
-        <b>Select </b>the algorithm used in the ML.NET model for prediction:<br />
+<div class="wrapper">
+    <header class="header">
+        Local prediction inference in Blazor and ML.NET
+    </header>
+    <article class="main">
+        <p></p> <b>Select </b>the algorithm used in the ML.NET model for prediction:<br />
         <b>Note: </b>Models that do not return probability values (only labels) will show values as N/A
         <p>
             <select id="algorithmName" @onchange="OnSelectedAlgorithm" class="dropDown" style="height:40px;border-radius:5px;border-color:#c1c1c1;background-color:transparent;font-weight:bold;">
@@ -26,14 +22,13 @@
                 <option value="StochasticGradientDescentCalibrated">StochasticGradientDescentCalibrated</option>
                 <option value="StochasticGradientDescentNonCalibrated">StochasticGradientDescentNonCalibrated</option>
             </select>
-        </p>    
-        <p style="padding-top:4px;">
-
+        </p>
+        <p>
             <small class="form-text text-muted"><b>Select or Search</b> any MLB Batter to perform prediction:</small>
             <BlazoredTypeahead SearchMethod="@SearchBaseballPlayersInLuceneAsync"
                                @bind-Value="@SelectedBatter"
                                Debounce="150" MaximumSuggestions="50"
-                               EnableDropDown="true" ShowDropDownOnFocus="true"            >
+                               EnableDropDown="true" ShowDropDownOnFocus="true">
                 <SelectedTemplate Context="item">
                     <b>@item.FullPlayerName</b>
                 </SelectedTemplate>
@@ -46,11 +41,89 @@
             </BlazoredTypeahead>
         </p>
     </article>
-    <article class="col-6 column-6">
-        <p>James James James James James James James James James James James James James James James James James James James James </p>
+    <article class="main">
+        <div class="g-predictionTable">
+            <h5>Hall of Fame - On Ballot</h5>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Year Played</th>
+                        <th>Probability</th>
+                        <th>Class Label</th>
+                    </tr>
+                </thead>
+                @foreach (var pred in this.predictionData.MLBBaseballBatterSeasonPredictions)
+                {
+                    <tr class=@(pred.OnHallOfFameBallotPrediction ? "g-prediction-row" : string.Empty)>
+                        <td class="g-seasonNumber">@pred.SeasonNumber</td>
+                        <td>@pred.OnHallOfFameBallotProbabilityLabel</td>
+                        <td class="g-prediction"><div class=@(pred.OnHallOfFameBallotPrediction ? "g-prediction-true" : string.Empty)>@pred.OnHallOfFameBallotPrediction</div></td>
+                    </tr>
+                }
+            </table>
+        </div>
     </article>
-    <!--end of column -->
+    <article class="main">
+        <div class="g-predictionTable">
+            <h5>Hall of Fame - Induction</h5>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Year Played</th>
+                        <th>Probability</th>
+                        <th>Class Label</th>
+                    </tr>
+                </thead>
+                @foreach (var pred in this.predictionData.MLBBaseballBatterSeasonPredictions)
+                {
+                    <tr class=@(pred.InductedToHallOfFamePrediction ? "g-prediction-row" : string.Empty)>
+                        <td class="g-seasonNumber">@pred.SeasonNumber</td>
+                        <td>@pred.InductedToHallOfFameProbabilityLabel</td>
+                        <td class="g-prediction"><div class=@(pred.InductedToHallOfFamePrediction ? "g-prediction-true" : string.Empty)>@pred.InductedToHallOfFamePrediction</div></td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </article>
+    <article class="main">
+        <div class="@cardDetailsChartStyle">
+            <div class="g-predictionChart">
+                <h5>Predictions - Historical Seasons</h5>
+                <!-- Create a div where the graph will take place -->
+                <div id="my_dataviz" style="clear: both;">
+                </div>
+            </div>
+        </div>
+    </article>
+
+    
+   
+   
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
